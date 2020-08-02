@@ -1,0 +1,13 @@
+<h1>{{course.root.title}}</h1>
+<ul>
+    <ng-container *ngTemplateOutlet="recursiveListTmpl; context:{ $implicit: list }"></ng-container>
+</ul>
+
+<ng-template #recursiveListTmpl let-list>
+    <li *ngFor="let item of list">
+        {{ item.title }}
+        <ul *ngIf="item.childrens.length > 0">
+            <ng-container *ngTemplateOutlet="recursiveListTmpl; context:{ $implicit: item.childrens }"></ng-container>
+        </ul>
+    </li>
+</ng-template>

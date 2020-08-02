@@ -1,0 +1,59 @@
+version: '3.8'
+
+services:
+
+  db_vtc:
+    container_name: db_vtc
+    image: mysql
+    command: ['--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci','--default-authentication-plugin=mysql_native_password']
+    restart: always
+    environment:
+      MYSQL_DATABASE: virtual_teacher_course
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+    ports:
+      - 3386:3306
+    volumes:
+      - persistent:/var/lib/mysql
+    networks:
+      - network_vtc
+      
+  phpmyadmin_vtc:
+    container_name: phpmyadmin_vtc
+    depends_on:
+      - db_vtc
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    environment:
+      PMA_HOST: db_vtc
+      PMA_PORT: 3306
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+    ports:
+      - 8086:80
+    networks:
+      - network_vtc
+
+  app_vtc:
+    container_name: app_vtc
+    depends_on:
+      - db_vtc
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: bash -c "mvn clean install && mvn -f courses-virtual-teacher-server-app/pom.xml spring-boot:run"
+    ports:
+      - 9220:9220
+    networks:
+      - network_vtc
+
+networks:
+  network_vtc:
+
+volumes:
+  persistent:

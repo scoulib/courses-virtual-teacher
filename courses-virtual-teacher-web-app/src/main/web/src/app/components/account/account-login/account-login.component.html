@@ -1,0 +1,42 @@
+<!-- https://code-maze.com/angular-material-form-validation/ -->
+
+<section class="container" style="min-height: 100%; margin-top: 200px" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="20px">
+    <mat-card fxFlex fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="20px" [style.width.px]=600>
+        <mat-card-title>Connexion</mat-card-title>
+        <form [formGroup]="loginForm" autocomplete="off" novalidate (ngSubmit)="onSubmit(loginForm.value)"
+            fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="20px">
+            <mat-card-content fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="20px">
+
+                <mat-form-field fxFlex [style.width.px]=400>
+                    <mat-label>Identifiant</mat-label>
+                    <input matInput type="text" placeholder="Identifiant"
+                        formControlName="username" id="username"  (focus)="focusStateid = true" (focusout)="focusStateid = false" required>
+                    <mat-icon matSuffix>account_box</mat-icon>
+                    <mat-hint align="end" *ngIf="focusStateid">Entre 8 et 20 caractères</mat-hint>
+                    <mat-error *ngIf="hasError('username', 'required')">Identifiant requis</mat-error>
+                    <mat-error *ngIf="hasError('username', 'minlength')">8 caractères minimum</mat-error>
+                    <mat-error *ngIf="hasError('username', 'maxlength')">20 caractères maximum</mat-error>
+                </mat-form-field>
+
+                <mat-form-field fxFlex [style.width.px]=400>
+                    <mat-label>Mot de passe</mat-label>
+                    <input matInput type="password" placeholder="Mot de passe" formControlName="password" id="password" (focus)="focusStatepass = true" (focusout)="focusStatepass = false" required>
+                    <mat-icon matSuffix>lock</mat-icon>
+                    <mat-hint align="end" *ngIf="focusStatepass">Votre mot de passe doit etre compris entre 8 et 20 caractères, se composer de chiffres, de lettres, comprendre des majuscules/minuscules et de caractères spéciaux.
+                    </mat-hint>
+                    <mat-error *ngIf="hasError('password', 'required')">Mot de passe requis</mat-error>
+                    <mat-error *ngIf="hasError('password', 'minlength')">8 caracteres minimum</mat-error>
+                    <mat-error *ngIf="hasError('password', 'maxlength')">20 caracteres maximum</mat-error>
+                    <mat-error *ngIf="hasError('password', 'pattern')">Le format n'est pas respecté</mat-error>
+                </mat-form-field>
+
+            </mat-card-content>
+            <mat-card-actions fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="20px">
+                <button mat-raised-button color="primary" [disabled]="!loginForm.valid">Se connecter</button>
+            </mat-card-actions>
+        </form>
+        <a routerLinkActive="active" routerLink="/forgot-password">
+            Mot de passe oublié ?
+        </a>
+    </mat-card>
+</section>

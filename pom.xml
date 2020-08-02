@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>universite.angers.master.info.courses.virtual.teacher</groupId>
+	<artifactId>courses-virtual-teacher-app</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>Courses Virtual Teacher</name>
+	<description>
+		Logiciel qui permet à tout enseignant de mettre en place des cours de façon simple et conviviale pour des étudiants
+	</description>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.2.6.RELEASE</version>
+		<relativePath />
+	</parent>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>11</java.version>
+		<maven.compiler.source>11</maven.compiler.source>
+		<maven.compiler.target>11</maven.compiler.target>
+        <org.apache.maven.plugins.version>3.8.1</org.apache.maven.plugins.version>
+        <org.projectlombok.version>1.18.2</org.projectlombok.version>
+        <org.mapstruct.version>1.2.0.Final</org.mapstruct.version>
+	</properties>
+
+	<modules>
+		<module>courses-virtual-teacher-web-app</module>
+		<module>courses-virtual-teacher-server-app</module>
+		<module>courses-virtual-teacher-desktop-app</module>
+		<module>courses-virtual-teacher-models-app</module>
+	</modules>
+	
+</project>

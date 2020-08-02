@@ -1,0 +1,62 @@
+<!-- https://www.bennadel.com/blog/3512-playing-with-recursive-ng-template-references-in-angular-6-1-10.htm -->
+
+<!-- Define the recursive template. -->
+<ng-template #elementTemplateRef let-element>
+
+  <li>
+
+    <!--  Test sur les élements de type SECTION -->
+    <ul *ngIf="element.type === 'SECTION'">
+      <ul *ngIf="element.format === 'TEXTE'">
+        <h1> {{ element.content }} </h1>
+      </ul>
+      <ul *ngIf="element.format === 'HTML'" [innerHTML]="element.content">
+
+      </ul>
+    </ul>
+
+    <!--  Test sur les élements de type PARAGRAPHE -->
+    <ul *ngIf="element.type ==='PARAGRAPHE'">
+      <ul *ngIf="element.format === 'TEXTE'">
+        <p> {{ element.content }} </p>
+      </ul>
+      <ul *ngIf="element.format === 'HTML'" [innerHTML]="element.content">
+
+      </ul>
+    </ul>
+
+    <!--  Test sur les élements de type IMAGE -->
+    <ul *ngIf="element.type === 'IMAGE'">
+      <img src="{{ element.content }}">
+    </ul>
+
+    <ul *ngIf="element.subElements.length">
+
+      <!-- Invoke the recursive template. -->
+      <ng-template ngFor [ngForOf]="element.subElements" [ngForTemplate]="elementTemplateRef">
+      </ng-template>
+
+    </ul>
+
+  </li>
+
+</ng-template>
+
+<!--
+	Initiate the recursive template rendering. Because our recursive template is going to
+	be using the ngFor directive to render recursively, the "context" in the recursive
+	instances is going to be the ngForContext. As such, we have to "mock" the initial
+	context to look like the context that the ngFor directive will expose internally.
+
+	NOTE: If we used ngContainer or ngTemplate to invoke the recursion internally, we'd
+	have more control over which values were made available at each level.
+-->
+
+<div id="content">
+  <div id="page">
+    <ng-template
+      [ngTemplateOutlet]="elementTemplateRef"
+      [ngTemplateOutletContext]="{ $implicit: course.root }">
+    </ng-template>
+  </div>
+</div>

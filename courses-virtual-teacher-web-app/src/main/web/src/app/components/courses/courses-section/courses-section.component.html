@@ -1,0 +1,88 @@
+<div>
+  <br>
+  <div class="container">
+    <div class="container">
+      <div fxLayout="column" fxLayoutGap="20px" fxLayout.gt-md="row" fxLayoutAlign="space-around center"
+        class="content">
+        <div class="blocks" *ngIf="TestIsTeacher()">
+          <button button="submit" (click)="onAddCourse()" mat-raised-button color="primary">
+            <mat-icon>add</mat-icon> Ajouter un nouveau cours
+          </button>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="container">
+      <div fxLayout="row" fxLayoutAlign="center center" class="content">
+        <mat-card class="card">
+          <mat-card-title>
+            Cours
+          </mat-card-title>
+          <mat-card-content>
+
+            <mat-form-field>
+              <mat-label>Rechercher un cours</mat-label>
+              <input matInput (keyup)="onFilter($event)">
+            </mat-form-field>
+
+            <div class="example-container mat-elevation-z8">
+
+              <table mat-table #table [dataSource]="dataSource" matSort>
+
+                <!-- Title Column -->
+                <ng-container matColumnDef="title">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Titre </th>
+                  <td mat-cell *matCellDef="let course"> {{course.root.title}} </td>
+                </ng-container>
+
+                <!-- Description Column -->
+                <ng-container matColumnDef="description">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
+                  <td mat-cell *matCellDef="let course"> {{course.root.description}} </td>
+                </ng-container>
+
+                <!-- Author Column -->
+                <ng-container matColumnDef="author">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Auteur </th>
+                  <td mat-cell *matCellDef="let course"> {{course.author}} </td>
+                </ng-container>
+
+                <!-- Date Created Column -->
+                <ng-container matColumnDef="created">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Date de création </th>
+                  <td mat-cell *matCellDef="let course"> {{course.dateCreated | date: 'dd/MM/yyyy à HH:mm:ss'}} </td>
+                </ng-container>
+
+                <!-- Date LastModified Column -->
+                <ng-container matColumnDef="lastmodified">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Date de dernière modification </th>
+                  <td mat-cell *matCellDef="let course"> {{course.dateLastModified | date: 'dd/MM/yyyy à HH:mm:ss'}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="actions">
+                  <th mat-header-cell *matHeaderCellDef>Actions</th>
+                  <td mat-cell *matCellDef="let course">
+                    <button (click)="onEditCourse(course)" mat-icon-button matTooltip="Cliquer pour voir"
+                      class="iconbutton" color="primary">
+                      <mat-icon aria-label="Edit">edit</mat-icon>
+                    </button>
+
+                    <button *ngIf=" TestIsStudent() === false && TestIsAdmin() === false "  (click)="onDeleteCourse(course)" mat-icon-button matTooltip="Cliquer pour supprimer"
+                      class="iconbutton" color="warn">
+                      <mat-icon aria-label="Delete">delete</mat-icon>
+                    </button>
+                  </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </table>
+
+              <mat-paginator #paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>

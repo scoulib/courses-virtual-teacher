@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1058.0" style="-fx-background-color: #ffff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxml.FXMLAjouterCoursController">
+   <children>
+      <TabPane prefHeight="600.0" prefWidth="1058.0" style="-fx-background-color: #ffff;" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab fx:id="tabCours" text="Cours">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox prefHeight="569.0" prefWidth="1058.0">
+                           <children>
+                              <TreeView fx:id="tvCours" prefHeight="500.0" prefWidth="800.0" style="-fx-border-color: #021f54;">
+                                 <contextMenu>
+                                    <ContextMenu>
+                                      <items>
+                                          <MenuItem fx:id="modifierCours" mnemonicParsing="false" text="Modifier" />
+                                        <MenuItem fx:id="supprimerCours" mnemonicParsing="false" text="Supprimer" />
+                                          <MenuItem fx:id="ajouterCours" mnemonicParsing="false" text="Ajouter" />
+                                          <SeparatorMenuItem mnemonicParsing="false" />
+                                          <MenuItem fx:id="copierCours" mnemonicParsing="false" text="Copier" />
+                                          <MenuItem fx:id="couperCours" mnemonicParsing="false" text="Couper" />
+                                          <MenuItem fx:id="collerCours" mnemonicParsing="false" text="Coller" />
+                                      </items>
+                                    </ContextMenu>
+                                 </contextMenu></TreeView>
+                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
+                                 <children>
+                                    <Button fx:id="sauvgarderCours" mnemonicParsing="false" prefWidth="142.0" style="-fx-background-color: #21759B;" text="Sauvegarder" textAlignment="CENTER" textFill="WHITE">
+                                       <font>
+                                          <Font name="Abyssinica SIL" size="13.0" />
+                                       </font>
+                                    </Button>
+                                    <Button fx:id="tvQuitter" mnemonicParsing="false" prefWidth="142.0" style="-fx-background-color: #21759B;" text="Quitter" textAlignment="CENTER" textFill="WHITE">
+                                       <font>
+                                          <Font name="Abyssinica SIL" size="13.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab fx:id="tabVueHTML" text="Vue HTML">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

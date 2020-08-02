@@ -1,0 +1,88 @@
+<div>
+  <br>
+  <div class="container">
+    <div class="container">
+      <div fxLayout="column" fxLayoutGap="20px" fxLayout.gt-md="row" fxLayoutAlign="space-around center"
+           class="content">
+        <div class="blocks">
+          <button button="submit" mat-raised-button color="primary">
+            <mat-icon>add</mat-icon> Ajouter un nouveau structure
+          </button>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="container">
+      <div fxLayout="row" fxLayoutAlign="center center" class="content">
+        <mat-card class="card">
+          <mat-card-title>
+            Structure
+          </mat-card-title>
+          <mat-card-content>
+
+            <mat-form-field>
+              <mat-label>Rechercher un structure</mat-label>
+              <input matInput (keyup)="onFilter($event)">
+            </mat-form-field>
+
+            <div class="example-container mat-elevation-z8">
+
+              <table mat-table #table [dataSource]="dataSource" matSort>
+
+                <!-- Title Column -->
+                <ng-container matColumnDef="title">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Titre </th>
+                  <td mat-cell *matCellDef="let structure"> {{structure.title}} </td>
+                </ng-container>
+
+                <!-- Description Column -->
+                <ng-container matColumnDef="description">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
+                  <td mat-cell *matCellDef="let structure"> {{structure.description}} </td>
+                </ng-container>
+
+                <!-- Position Column -->
+                <ng-container matColumnDef="position">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Position </th>
+                  <td mat-cell *matCellDef="let structure"> {{structure.position}} </td>
+                </ng-container>
+
+                <!-- Expanded Column -->
+                <ng-container matColumnDef="expanded">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Expanded </th>
+                  <td mat-cell *matCellDef="let structure"> {{structure.expanded }} </td>
+                </ng-container>
+
+
+                <!-- Selected Column -->
+                <ng-container matColumnDef="selected">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Selected </th>
+                  <td mat-cell *matCellDef="let structure"> {{structure.selected }} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="actions">
+                  <th mat-header-cell *matHeaderCellDef>Actions</th>
+                  <td mat-cell *matCellDef="let structure">
+                    <button (click)="onEditStructure(structure)"  mat-icon-button matTooltip="Cliquer pour voir"
+                            class="iconbutton" color="primary">
+                      <mat-icon aria-label="Edit">edit</mat-icon>
+                    </button>
+                    <button (click)="onDeleteAccount(structure)"  mat-icon-button matTooltip="Cliquer pour supprimer"
+                            class="iconbutton" color="warn">
+                      <mat-icon aria-label="Delete">delete</mat-icon>
+                    </button>
+                  </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </table>
+
+              <mat-paginator #paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>

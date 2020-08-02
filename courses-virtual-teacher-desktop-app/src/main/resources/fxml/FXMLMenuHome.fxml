@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #ffff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <BorderPane prefHeight="800.0" prefWidth="1200.0">
+         <center>
+            <VBox prefHeight="400.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Pane prefHeight="200.0" prefWidth="1200.0" style="-fx-background-color: #21759B;">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="200.0" prefWidth="1200.0" spacing="25.0">
+                           <children>
+                              <Separator prefHeight="0.0" prefWidth="200.0" />
+                              <Label prefHeight="26.0" prefWidth="857.0" text="Bienvenue à la plateforme d'enseignement à distance de l'Université d'Angers" textFill="WHITE">
+                                 <font>
+                                    <Font name="Abyssinica SIL" size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                  </Pane>
+                  <HBox alignment="CENTER" prefHeight="280.0" prefWidth="1200.0" spacing="100.0">
+                     <children>
+                        <VBox alignment="TOP_RIGHT" prefHeight="400.0" prefWidth="200.0">
+                           <children>
+                              <Pane focusTraversable="true" prefHeight="15.0" prefWidth="200.0" style="-fx-background-color: #3b5998;" />
+                              <Button contentDisplay="CENTER" mnemonicParsing="false" prefHeight="250.0" prefWidth="200.0" style="-fx-border-color: #3b5998;" text="Administrateur" textAlignment="CENTER" textFill="#3b5998">
+                                 <font>
+                                    <Font size="22.0" />
+                                 </font>
+                              </Button>
+                              <Pane prefHeight="15.0" prefWidth="200.0" style="-fx-background-color: #3b5998;" />
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="400.0" prefWidth="200.0">
+                           <children>
+                              <Pane prefHeight="15.0" prefWidth="200.0" style="-fx-background-color: #3b5998;" />
+                              <Button contentDisplay="CENTER" mnemonicParsing="false" prefHeight="250.0" prefWidth="200.0" style="-fx-border-color: #3b5998;" text="Enseignant" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="22.0" />
+                                 </font>
+                                 <textFill>
+                                    <LinearGradient endX="0.45192307692307687" endY="1.0" startX="0.45673076923076916" startY="0.5769230769230769">
+                                       <stops>
+                                          <Stop color="#3b5998" />
+                                          <Stop color="#3b5998" offset="1.0" />
+                                       </stops>
+                                    </LinearGradient>
+                                 </textFill>
+                              </Button>
+                              <Pane prefHeight="15.0" prefWidth="200.0" style="-fx-background-color: #3b5998;" />
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="400.0" prefWidth="200.0">
+                           <children>
+                              <Pane prefHeight="15.0" prefWidth="200.0" style="-fx-background-color: #3b5998;" />
+                              <Button contentDisplay="CENTER" mnemonicParsing="false" prefHeight="250.0" prefWidth="200.0" style="-fx-border-color: #3b5998;" text="Etudiant" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="22.0" />
+                                 </font>
+                                 <textFill>
+                                    <LinearGradient endX="0.45192307692307687" endY="1.0" startX="0.45673076923076916" startY="0.5769230769230769">
+                                       <stops>
+                                          <Stop color="#3b5998" />
+                                          <Stop color="#3b5998" offset="1.0" />
+                                       </stops>
+                                    </LinearGradient>
+                                 </textFill>
+                              </Button>
+                              <Pane prefHeight="15.0" prefWidth="200.0" style="-fx-background-color: #3b5998;" />
+                           </children>
+                        </VBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="50.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+            </VBox>
+         </center>
+         <top>
+            <VBox prefHeight="126.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="117.0" prefWidth="1200.0" spacing="10.0" style="-fx-background-color: #ffff; -fx-border-color: #021f54;">
+                     <children>
+                        <ImageView fitHeight="101.0" fitWidth="185.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/app-logo.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </HBox>
+                  <AnchorPane prefHeight="10.0" prefWidth="1200.0">
+                     <children>
+                        <Pane prefHeight="10.0" prefWidth="1200.0" style="-fx-background-color: #3b5998;" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </VBox>
+         </top>
+      </BorderPane>
+   </children>
+</AnchorPane>

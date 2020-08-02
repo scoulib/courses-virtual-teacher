@@ -1,0 +1,6 @@
+<div class="scroll-area">
+    <app-structures-treeview-edit #treeview [(structure)]="structure" [register]="register"></app-structures-treeview-edit>
+</div>
+<div class="text-center" *ngIf="TestIsTeacher()">
+    <button mat-raised-button color="primary" (click)="onSave()">Enregistrer</button>
+</div>

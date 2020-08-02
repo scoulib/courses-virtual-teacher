@@ -1,0 +1,49 @@
+<section fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="20px">
+    <h1 mat-dialog-title>Editer un élément</h1>
+    <form [formGroup]="elementForm" autocomplete="off" novalidate fxLayout="column" fxLayoutAlign="center center"
+        fxLayoutGap="20px">
+        <mat-dialog-content fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="20px">
+
+            <mat-form-field fxFlex [style.width.px]=800>
+                <mat-label>Types</mat-label>
+                <mat-select [(ngModel)]="element.type" formControlName="types">
+                    <mat-option *ngFor="let type of typesElementCourseOptions" [value]="type">{{typesElementCourse[type]}}</mat-option>
+                </mat-select>
+                <mat-error *ngIf="hasError('types', 'required')">
+                   Le type est requis
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field fxFlex [style.width.px]=800>
+                <mat-label>Description</mat-label>
+                <textarea [(ngModel)]="element.description" matInput type="text" formControlName="description"
+                    id="description"></textarea>
+                <mat-error *ngIf="hasError('description', 'required')">La description est requise</mat-error>
+            </mat-form-field>
+
+            <mat-form-field fxFlex [style.width.px]=800>
+                <mat-label>Contenu</mat-label>
+                <textarea [(ngModel)]="element.content" matInput type="text" formControlName="content"
+                    id="content"></textarea>
+                <mat-error *ngIf="hasError('content', 'required')">Le contenu est requis</mat-error>
+            </mat-form-field>
+
+            <mat-form-field fxFlex [style.width.px]=800>
+                <mat-label>Formats</mat-label>
+                <mat-select [(ngModel)]="element.format" formControlName="formats">
+                    <mat-option *ngFor="let format of formatsElementCourseOptions" [value]="format">{{formatsElementCourse[format]}}</mat-option>
+                </mat-select>
+                <mat-error *ngIf="hasError('formats', 'required')">
+                   Le format est requis
+                </mat-error>
+            </mat-form-field>
+
+        </mat-dialog-content>
+        <mat-dialog-actions>
+            <button mat-raised-button color="primary" [mat-dialog-close]="true"
+                [disabled]="!elementForm.valid">OK</button>
+          <button mat-raised-button color="primary" [mat-dialog-close]="true">
+            Annuler</button>
+        </mat-dialog-actions>
+    </form>
+</section>

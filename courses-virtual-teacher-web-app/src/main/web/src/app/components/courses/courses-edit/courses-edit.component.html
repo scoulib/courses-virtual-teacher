@@ -1,0 +1,14 @@
+<div fxLayout="row" fxLayoutAlign="space-around center" fxFlexAlign="center">
+
+
+      <div class="split">
+        <app-courses-treeview-section #treeview [(course)]="course" [register]="register"></app-courses-treeview-section>
+      </div>
+      <div class="split right" >
+        <app-courses-preview-section #preview [(course)]="course"></app-courses-preview-section>
+      </div>
+
+
+
+
+</div>

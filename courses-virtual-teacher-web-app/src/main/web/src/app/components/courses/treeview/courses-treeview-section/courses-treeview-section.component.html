@@ -1,0 +1,9 @@
+<div class="scroll-area">
+    <app-courses-treeview-edit #treeview [(course)]="course" [register]="register"></app-courses-treeview-edit>
+</div>
+<div class="text-center" *ngIf="TestIsTeacher()">
+    <button mat-raised-button color="primary" (click)="onSave()">Enregistrer</button>
+</div>
+<div class="text-center" *ngIf="TestIsAdmin() || TestIsStudent() ">
+  <button mat-raised-button color="primary" (click)="ToCourse()">Retour</button>
+</div>

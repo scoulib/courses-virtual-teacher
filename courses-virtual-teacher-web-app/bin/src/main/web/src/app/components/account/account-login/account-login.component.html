@@ -1,0 +1,34 @@
+<!-- https://code-maze.com/angular-material-form-validation/ -->
+
+<section fxLayout="row wrap" fxLayoutAlign="center center">
+    <mat-card fxFlex="500px" fxFlex.xs="100%">
+        <mat-card-title>Connexion</mat-card-title>
+        <form [formGroup]="loginForm" autocomplete="off" novalidate (ngSubmit)="onSubmit(loginForm.value)"
+            fxLayout="column wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
+            <mat-card-content>
+                <mat-form-field>
+                    <mat-label>Identifiant</mat-label>
+                    <input matInput type="text" placeholder="Identifiant" formControlName="login" id="login">
+                    <mat-hint align="end">Not more then 60 characters long</mat-hint>
+                    <mat-error *ngIf="hasError('login', 'required')">Name is required</mat-error>
+                    <mat-error *ngIf="hasError('login', 'maxlength')">You have more than 60 characters</mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>Mot de passe</mat-label>
+                    <input matInput type="password" placeholder="Mot de passe" formControlName="password" id="password">
+                    <mat-hint align="end">Not more then 60 characters long</mat-hint>
+                    <mat-error *ngIf="hasError('password', 'required')">Name is required</mat-error>
+                    <mat-error *ngIf="hasError('password', 'maxlength')">You have more than 60 characters</mat-error>
+                </mat-form-field>
+
+            </mat-card-content>
+            <mat-card-actions align="center">
+                <button mat-raised-button color="primary" [disabled]="!loginForm.valid">Se connecter</button>
+            </mat-card-actions>
+        </form>
+        <a routerLinkActive="active" routerLink="/forgot-password">
+            Mot de passe oublié ?
+        </a>
+    </mat-card>
+</section>

@@ -1,0 +1,106 @@
+<!-- https://auth0.com/blog/creating-beautiful-apps-with-angular-material/ -->
+<!-- https://loiane.com/2017/08/angular-hide-navbar-login-page/ -->
+<!-- https://www.thecodecampus.de/blog/material-2-sticky-footer-mat-sidenav/ -->
+
+<mat-sidenav #sidenav role="navigation">
+    <mat-nav-list>
+        <a mat-list-item routerLink="/home">
+            <mat-icon class="icon">home</mat-icon>
+            <span class="label">Home</span>
+        </a>
+        <a mat-list-item routerLink="/dashboard">
+            <mat-icon class="icon">dashboard</mat-icon>
+            <span class="label">Dashboard</span>
+        </a>
+        <a mat-list-item routerLink="/account">
+            <mat-icon class="icon">account_box</mat-icon>
+            <span class="label">Compte</span>
+        </a>
+        <a mat-list-item routerLink="/courses">
+            <mat-icon class="icon">work</mat-icon>
+            <span class="label">Cours</span>
+        </a>
+        <a mat-list-item routerLink="/structures">
+            <mat-icon class="icon">account_tree</mat-icon>
+            <span class="label">Structures</span>
+        </a>
+        <a mat-list-item routerLink="/tasks">
+            <mat-icon class="icon">calendar_today</mat-icon>
+            <span class="label">Taches</span>
+        </a>
+        <a mat-list-item routerLink="/mails">
+            <mat-icon class="icon">email</mat-icon>
+            <span class="label">Mails</span>
+        </a>
+        <a mat-list-item routerLink="/login">
+            <mat-icon class="icon">input</mat-icon>
+            <span class="label">Se connecter</span>
+        </a>
+    </mat-nav-list>
+</mat-sidenav>
+
+<mat-toolbar color="primary">
+    <div fxHide.gt-xs>
+        <button mat-icon-button (click)="sidenav.toggle()">
+            <mat-icon>menu</mat-icon>
+        </button>
+    </div>
+    <div>
+        <a routerLink="/home">
+            <img src="assets/img/logo.png" style="width:30px;height:30px;">
+        </a>
+        Virtual Teacher Courses
+    </div>
+    <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs>
+        <ul fxLayout fxLayoutGap="20px" class="navigation-items">
+            <li routerLinkActive="active">
+                <a routerLink="/home">
+                    <mat-icon class="icon">home</mat-icon>
+                    <span class="label">Home</span>
+                </a>
+            </li>
+            <li routerLinkActive="active">
+                <a routerLink="/dashboard">
+                    <mat-icon class="icon">dashboard</mat-icon>
+                    <span class="label">Dashboard</span>
+                </a>
+            </li>
+            <li routerLinkActive="active">
+                <a routerLink="/account">
+                    <mat-icon class="icon">account_box</mat-icon>
+                    <span class="label">Compte</span>
+                </a>
+            </li>
+            <li routerLinkActive="active">
+                <a routerLink="/courses">
+                    <mat-icon class="icon">work</mat-icon>
+                    <span class="label">Cours</span>
+                </a>
+            </li>
+            <li routerLinkActive="active">
+                <a routerLink="/structures">
+                    <mat-icon class="icon">account_tree</mat-icon>
+                    <span class="label">Structures</span>
+                </a>
+            </li>
+            <li routerLinkActive="active">
+                <a routerLink="/tasks">
+                    <mat-icon class="icon">calendar_today</mat-icon>
+                    <span class="label">Taches</span>
+                </a>
+            </li>
+            <li routerLinkActive="active">
+                <a routerLink="/mails">
+                    <mat-icon class="icon">email</mat-icon>
+                    <span class="label">Mails</span>
+                </a>
+            </li>
+            <li routerLinkActive="active">
+                <a routerLink="/login">
+                    <mat-icon class="icon">input</mat-icon>
+                    <span class="label">Se connecter</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</mat-toolbar>
